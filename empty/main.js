@@ -6,7 +6,7 @@ var mainState = {
     },
 
     create: function() {
-      game.stage.backgroundColor = '#BFC7FF';
+      game.stage.backgroundColor = '#6182BC';
 
       //bird
       //this sets the gravity for the bird
@@ -73,7 +73,7 @@ var mainState = {
     // Add the 6 pipes
     // With one big hole at position 'hole' and 'hole + 1'
     for (var i = 0; i < 8; i++)
-        if (i != hole && i != hole + 2)
+        if (i != hole && i != hole + 1)
             this.addOnePipe(400, i * 60 + 10);
           },
 
