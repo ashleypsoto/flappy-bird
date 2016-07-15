@@ -27,6 +27,7 @@ var mainState = {
 
     //pipes
     this.pipes = game.add.group();
+    this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
     },
 
     update: function() {
@@ -77,7 +78,7 @@ var mainState = {
             this.addOnePipe(400, i * 60 + 10);
           },
 
-    this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
+
 };
 
 // Initialize Phaser, and create a 400px by 490px game
