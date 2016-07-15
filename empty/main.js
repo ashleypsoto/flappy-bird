@@ -30,7 +30,7 @@ var mainState = {
     this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
     },
 
-    update: function() {
+  update: function() {
       // If the bird is out of the screen (too high or too low)
       // Call the 'restartGame' function
       if (this.bird.y < 0 || this.bird.y > 490)
