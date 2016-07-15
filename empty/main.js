@@ -47,7 +47,7 @@ var mainState = {
       game.state.start('main');
   },
 
-  addOnePipe: function(x, y) {
+  /*ddOnePipe: function(x, y) {
     // Create a pipe at the position x and y
     var pipe = game.add.sprite(x, y, 'pipe');
 
@@ -63,7 +63,7 @@ var mainState = {
     // Automatically kill the pipe when it's no longer visible
     pipe.checkWorldBounds = true;
     pipe.outOfBoundsKill = true;
-  },
+  },*/
 
   addRowOfPipes: function() {
     // Randomly pick a number between 1 and 5
@@ -73,11 +73,11 @@ var mainState = {
     // Add the 6 pipes
     // With one big hole at position 'hole' and 'hole + 1'
     for (var i = 0; i < 8; i++)
-        if (i != hole && i != hole + 1)
+        if (i != hole && i != hole + 2)
             this.addOnePipe(400, i * 60 + 10);
           },
 
-    this.timer = game.time.events.loop(1500, this.addRowOfPipes, this); 
+    this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
 };
 
 // Initialize Phaser, and create a 400px by 490px game
