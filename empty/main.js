@@ -48,7 +48,7 @@ var mainState = {
       game.state.start('main');
   },
 
-  /*ddOnePipe: function(x, y) {
+  addOnePipe: function(x, y) {
     // Create a pipe at the position x and y
     var pipe = game.add.sprite(x, y, 'pipe');
 
@@ -64,13 +64,12 @@ var mainState = {
     // Automatically kill the pipe when it's no longer visible
     pipe.checkWorldBounds = true;
     pipe.outOfBoundsKill = true;
-  },*/
+  },
 
   addRowOfPipes: function() {
     // Randomly pick a number between 1 and 5
     // This will be the hole position
     var hole = Math.floor(Math.random() * 5) + 1;
-
     // Add the 6 pipes
     // With one big hole at position 'hole' and 'hole + 1'
     for (var i = 0; i < 8; i++)
