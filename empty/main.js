@@ -1,12 +1,14 @@
 // Create our 'main' state that will contain the game
 var mainState = {
     preload: function() {
-      game.load.image('bird', 'assets/swordheman.png');
+      game.load.image('bird', 'assets/swordheman1.png');
+      game.load.image('pipe', 'assets/pipe.png');
     },
 
     create: function() {
       game.stage.backgroundColor = '#BFC7FF';
 
+      //bird
       //this sets the gravity for the bird
       game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -23,7 +25,8 @@ var mainState = {
                     Phaser.Keyboard.SPACEBAR);
     spaceKey.onDown.add(this.jump, this);
 
-
+    //pipes
+    this.pipes = game.add.group();
     },
 
     update: function() {
@@ -42,6 +45,24 @@ var mainState = {
   restartGame: function() {
       // Start the 'main' state, which restarts the game
       game.state.start('main');
+  },
+
+  addOnePipe: function(x, y) {
+    // Create a pipe at the position x and y
+    var pipe = game.add.sprite(x, y, 'pipe');
+
+    // Add the pipe to our previously created group
+    this.pipes.add(pipe);
+
+    // Enable physics on the pipe
+    game.physics.arcade.enable(pipe);
+
+    // Add velocity to the pipe to make it move left
+    pipe.body.velocity.x = -200;
+
+    // Automatically kill the pipe when it's no longer visible
+    pipe.checkWorldBounds = true;
+    pipe.outOfBoundsKill = true;
   },
 };
 
