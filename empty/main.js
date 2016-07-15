@@ -23,11 +23,16 @@ var mainState = {
 
       var spaceKey = game.input.keyboard.addKey(
                     Phaser.Keyboard.SPACEBAR);
-    spaceKey.onDown.add(this.jump, this);
+      spaceKey.onDown.add(this.jump, this);
 
     //pipes
     this.pipes = game.add.group();
     this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
+
+    //sets score
+    this.score = 0;
+    this.labelScore = game.add.text(20, 20, "0",
+    { font: "30px Arial", fill: "#ffffff" });
     },
 
   update: function() {
@@ -36,6 +41,9 @@ var mainState = {
       if (this.bird.y < 0 || this.bird.y > 490)
             this.restartGame();
     },
+
+    game.physics.arcade.overlap(
+    this.bird, this.pipes, this.restartGame, null, this);
       // Make the bird jump
   jump: function() {
       // Add a vertical velocity to the bird
