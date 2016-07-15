@@ -75,7 +75,9 @@ var mainState = {
     for (var i = 0; i < 8; i++)
         if (i != hole && i != hole + 1)
             this.addOnePipe(400, i * 60 + 10);
-},
+          },
+
+    this.timer = game.time.events.loop(1500, this.addRowOfPipes, this); 
 };
 
 // Initialize Phaser, and create a 400px by 490px game
