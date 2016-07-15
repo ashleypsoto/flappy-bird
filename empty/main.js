@@ -1,7 +1,7 @@
 // Create our 'main' state that will contain the game
 var mainState = {
     preload: function() {
-      game.load.image('bird', 'assets/bird.png');
+      game.load.image('bird', 'assets/swordheman.png');
     },
 
     create: function() {
